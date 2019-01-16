@@ -13,7 +13,6 @@ var filesToCache = [
   'icons/icon-512x512.png',
   'images/avatar.png',
   'images/grey-prism.svg',
-  'images/qrcode.jpg',
   'styles/main.min.css',
   'scripts/index.min.js',
 
@@ -35,8 +34,8 @@ var filesToCache = [
   'https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js',
 
   // MathJax
-  'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML',
-  'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js?V=2.7.5',
+  //'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML',
+  //'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js?V=2.7.5',
 ];
 
 // Cache the application assets
@@ -47,14 +46,14 @@ self.addEventListener('install', event => {
 // network first
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(cacheName).then(function(cache) {
+    caches.open(cacheName).then(function (cache) {
       return fetch(event.request)
-        .then(function(response) {
+        .then(function (response) {
           if (response.status === 404) return caches.match('404.html');
           cache.put(event.request, response.clone());
           return response;
         })
-        .catch(function() {
+        .catch(function () {
           return caches.match(event.request);
         });
     }),
