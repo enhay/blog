@@ -28,7 +28,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   bg = "images/grey-prism.svg"
   avatar = "images/avatar.png"
   seotitle = "zhaohua Blog "
-  subtitle = "~ Keep It Simple & Stupid ~"
+  subtitle = "~ 烂笔头 ~"
   description = "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again."
   paginate = 10
 
