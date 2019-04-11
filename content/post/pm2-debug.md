@@ -1,7 +1,7 @@
 ---
 title: "pm2 小坑"
 tags: ["pm2"]
-date: 2019-04-10
+date: 2019-04-11
 draft: false
 ---
 
