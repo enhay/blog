@@ -8,7 +8,7 @@ weight: 50
 
 三十未立 有家有娃 是不是全栈不知道,反正前端不合格
 
-博客使用vscode写的,图片插入腾讯云用的自己写的插件 就上Marketplace 想用可看[github](https://github.com/enhay/vscode-markwown-qcloud)
+博客使用vscode写的,图片插入腾讯云用的自己写的插件 没上Marketplace 想用可看[github](https://github.com/enhay/vscode-markwown-qcloud)
 
 博客系统使用[hugo](https://github.com/gohugoio/hugo)
 
