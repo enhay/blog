@@ -1,5 +1,5 @@
 ---
-title: "pm2 小坑"
+title: "pm2配置启动文件"
 tags: ["pm2"]
 date: 2019-04-11
 draft: false
