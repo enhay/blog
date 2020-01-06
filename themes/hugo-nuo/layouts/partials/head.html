@@ -24,56 +24,6 @@
   {{ with .Site.GoogleAnalytics }}<link href="//www.google-analytics.com" rel="dns-prefetch">{{ end }}
   {{ with .Site.Params.baidutongji }}<link href="//hm.baidu.com" rel="dns-prefetch">{{ end }}
 
-  {{ if and (eq .Kind "page") (eq .Type "post") }}
-
-  <!-- Page Author & Description -->
-  {{ with .Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-  <meta name="description" content="{{ .Summary | plainify }}">
-
-  <!-- Twitter Card -->
-  {{ if isset .Params "cover" }}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
-    <meta name="twitter:title" content="{{ .Title }}">
-    <meta name="twitter:description" content="{{ .Summary | plainify }}">
-    <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
-  {{ else }}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
-    <meta name="twitter:title" content="{{ .Title }}">
-    <meta name="twitter:description" content="{{ .Summary | plainify }}">
-    <meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
-  {{ end }}
-
-  <!-- Facebook Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ .Summary | plainify }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $avatar.RelPermalink }}{{ end }}">
-
-{{ else }}
-
-  <!-- Site Author & Description -->
-  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
-  <meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
-  {{ with .Site.Params.description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
-  <meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
-
-  <!-- Facebook Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
-  {{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}">{{ end }}
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ $avatar.RelPermalink }}">
-
-{{ end }}
-
 <!-- Site Generator -->
 <meta name="generator" content="Hugo {{ .Hugo.Version }}">
 
@@ -130,11 +80,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
 
 <!-- Medium Zoom -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
+{{ if and (eq .Kind "page") (eq .Type "posts") }}
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
-{{ end }}
-
-<!-- Video.js Styles -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
 {{ end }}

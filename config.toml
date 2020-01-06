@@ -7,7 +7,7 @@ PygmentsCodeFences = true
 canonifyurls = true
 
 # Copyright of your post
-copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce."
+copyright = "©please give source if you wish to quote or reproduce."
 
 # Initial site menu, you can extend menu with content.
 [[menu.main]]
@@ -29,8 +29,8 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   avatar = "images/avatar.png"
   seotitle = "zhaohua Blog "
   subtitle = "~ 烂笔头 ~"
-  description = "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again."
-  paginate = 10
+  description = "Hugo makes building websites fun again."
+  paginate = 20
 
   # Choose your social networks
   email = "zhaohuap@gmail.com"
@@ -43,4 +43,4 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   baiduTongji = "484edc35ca71228aa8ceb711a55d09e5"
 
   # ICP Number (China Only)
-  # ICP = "苏ICP备16005986号-2"
+  ICP = "京ICP备18036514号-1"

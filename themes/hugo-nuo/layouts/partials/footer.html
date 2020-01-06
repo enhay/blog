@@ -3,8 +3,7 @@
 
 <!-- Site Footer -->
 <footer class="site-footer">
-  <p>© {{ if eq now.Year 2017 }}2017{{ else }}2017-{{ now.Year }}{{ end }} {{ .Site.Title }}</p>
-  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  <p>©2020 Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
   {{ if and (isset .Site.Params "icp") (ne .Site.Params.ICP "") }}
     <p><a href="http://www.miitbeian.gov.cn" title="Check ICP info" target="_blank" rel="noopener">{{ .Site.Params.ICP }}</a></p>
   {{ end }}
@@ -14,12 +13,12 @@
 <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
 
 <!-- Video.js for post -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
+{{ if and (eq .Kind "page") (eq .Type "posts") }}
 <script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
 {{ end }}
 
 <!-- Mathjax for post -->
-{{ if and (eq .Kind "page") (eq .Type "post") }}
+{{ if and (eq .Kind "page") (eq .Type "posts") }}
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -54,11 +53,6 @@
     });
   }
 </script>
-
-<!-- Google Analytics -->
-{{ if .Site.GoogleAnalytics }}
-{{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
 
 <!-- Baidu Tongji -->
 {{ with .Site.Params.baidutongji }}
