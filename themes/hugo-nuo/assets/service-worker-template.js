@@ -13,16 +13,22 @@ var filesToCache = [
   'icons/icon-512x512.png',
   'images/avatar.png',
   'images/grey-prism.svg',
-  'styles/main.min.css',
+  'images/qrcode.jpg',
+  'styles/main-rendered.min.css',
+{{ with .Site.Params.customStyle }}'styles/custom.min.css',{{ end }}
   'scripts/index.min.js',
 
   // Google fonts
   'https://fonts.googleapis.com/css?family=Lobster',
   'https://fonts.gstatic.com/s/lobster/v20/neILzCirqoswsqX9zoKmM4MwWJU.woff2',
 
+{{ with .Site.Params.fontAwesome }}
+  // FontAwesome
+  'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
+{{ else }}
   // Iconfont
   'https://at.alicdn.com/t/font_174169_qmgvd10zwbf.woff',
-
+{{ end }}
   // smooth-scroll
   'https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js',
 
@@ -34,8 +40,8 @@ var filesToCache = [
   'https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js',
 
   // MathJax
-  //'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML',
-  //'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js?V=2.7.5',
+  'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML',
+  'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js?V=2.7.5',
 ];
 
 // Cache the application assets
@@ -46,14 +52,14 @@ self.addEventListener('install', event => {
 // network first
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(cacheName).then(function (cache) {
+    caches.open(cacheName).then(function(cache) {
       return fetch(event.request)
-        .then(function (response) {
+        .then(function(response) {
           if (response.status === 404) return caches.match('404.html');
           cache.put(event.request, response.clone());
           return response;
         })
-        .catch(function () {
+        .catch(function() {
           return caches.match(event.request);
         });
     }),

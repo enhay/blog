@@ -7,7 +7,7 @@ PygmentsCodeFences = true
 canonifyurls = true
 
 # Copyright of your post
-copyright = "©please give source if you wish to quote or reproduce."
+copyright = "©"
 
 # Initial site menu, you can extend menu with content.
 [[menu.main]]
@@ -28,7 +28,7 @@ copyright = "©please give source if you wish to quote or reproduce."
   bg = "images/grey-prism.svg"
   avatar = "images/avatar.png"
   seotitle = "zhaohua Blog "
-  subtitle = "~ 烂笔头 ~"
+  subtitle = "~ enjoy and have fun ~"
   description = "Hugo makes building websites fun again."
   paginate = 20
 
