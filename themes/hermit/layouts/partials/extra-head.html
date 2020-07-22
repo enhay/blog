@@ -1,0 +1,13 @@
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+  $(function () {
+    console.log('extra-head')
+    isSingle = $('main').hasClass('singler')
+    if (isSingle) {
+      $('html').addClass('single')
+    }else{
+      $('#site-header').hide()
+    }
+
+  })
+</script>
