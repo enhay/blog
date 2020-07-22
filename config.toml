@@ -1,46 +1,73 @@
-baseURL = ""
-languageCode = "en"
-title = "Zhaohua Blog"
-theme = "hugo-nuo"
-enableRobotsTXT = true
-PygmentsCodeFences = true
-canonifyurls = true
+baseURL = "https://blog.zhaoyoung.me"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "果园"
+theme = "hermit"
+# enableGitInfo = true
+pygmentsCodefences  = true
+pygmentsUseClasses  = true
+hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
+rssLimit = 1  # Maximum number of items in the RSS feed.
+copyright = "rss永垂不朽." # This message is only used by the RSS template.
+enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
+# googleAnalytics = "UA-123-45"disableKinds
+# disqusShortname = "yourdiscussshortname"
 
-# Copyright of your post
-copyright = "©"
+[author]
+  name = "ZhaoHua"
 
-# Initial site menu, you can extend menu with content.
-[[menu.main]]
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
+[blackfriday]
+  # hrefTargetBlank = true
+  # noreferrerLinks = true
+  # nofollowLinks = true
 
-[[menu.main]]
-  name = "Tags"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
+[taxonomies]
+  tag = "tags"
+  # Categories are disabled by default.
 
-# Add your own params here
 [params]
-  author = "zhao hua"
-  bg = "images/grey-prism.svg"
-  avatar = "images/avatar.png"
-  seotitle = "zhaohua Blog "
-  subtitle = "~ enjoy and have fun ~"
-  description = "Hugo makes building websites fun again."
-  paginate = 20
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # Choose your social networks
-  email = "zhaohuap@gmail.com"
-  github = "enhay"
+  # Metadata mostly used in document's head
+  # description = ""
+  # images = [""]
+  # themeColor = "#494f5c"
+  themeColor = "#494f5c"
+  homeSubtitle = "A Blog For Life."
+  footerCopyright = ''
+  # bgImg = ""  # Homepage background-image URL
 
+  # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  # gitUrl = "https://github.com/username/repository/commit/"
 
-  # Changyan Comments (China Only)
-  changyan = false
+  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
+  justifyContent = false  # Set "text-align: justify" to `.content`.
+
+  relatedPosts = false  # Add a related content section to all single posts page
+
+  code_copy_button = true # Turn on/off the code-copy-button for code-fields
   
-  baiduTongji = "484edc35ca71228aa8ceb711a55d09e5"
+  # Add custom css
+  customCSS = ["css/content.css"]
 
-  # ICP Number (China Only)
-  ICP = "京ICP备18036514号-1"
+  # Social Icons
+  # Check https://github.com/Track3/hermit#social-icons for more info.
+
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/enhay"
+
+[menu]
+
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 10
+
+  [[menu.main]]
+    name = "About"
+    url = "about"
+    weight = 20

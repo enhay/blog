@@ -1,6 +1,6 @@
 ---
 title: "tars欺萌"
-tags: ["tars","rpc"]
+tags: ["tars","rpc",]
 date: 2019-05-15
 draft: false
 ---
@@ -72,3 +72,22 @@ jce代码生成器
 对于配置文件的解析和框架服务的调用只需要把tars命名空间改为tars即可
 
 而且go同cpp一样编译后为二进制文件,所以在后台部署时选择cpp类型即可由tarsnode启动管理.
+
+
+
+公司taf并不支持go原因,但是开源tars支持呀,由于底层的通讯协议未变,并且参考tars代码tarsgo的启动方式同cpp都是 ./bin --config servant.conf,所以基于开源tarsgo只需要简单的改造即可在公司taf平台发布.
+
+差异点1:配置文件解析
+
+taf平台生成的.conf配置文件是<taf>作为顶级命名空间,而tarsgo解析时使用tars作为顶级路径,
+
+想要服务正确读取配置, 可以选择修改框架的application文件的initConfig方法.或者直接在业务代码中读取配置并设置.
+
+ 差异点2:后台管理命令
+
+通过taf后台进行服务管理时, taf中的一些方法是比如修改日志等级方法名是 taf.setloglevel而tars框架中都改为了`tars.`, 我们可以直接修改源码将tars.改为taf. 或者利用本身提供的RegisterAdmin方法在新文件中注册旧方法, 这样在同步上游源码时能做到差异最小化.
+
+由于没有看到taf的源码,可能实际差异点仍有不少,但实测基于上述两点改造的 https://git.huya.com/huya-pgc/tars 不论是作为客户端还是服务端都没发现问题, 服务状态上报和维护都正常.比如弹幕挂件服务(http://taf.huya.com/#tabUrl=pub_manage.html&tabIndex=1&treeId=1PGC.5PgcBadgeServer
+
+)
+
