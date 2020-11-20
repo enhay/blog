@@ -1,13 +1,8 @@
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script>
-  $(function () {
-    console.log('extra-head')
-    isSingle = $('main').hasClass('singler')
-    if (isSingle) {
-      $('html').addClass('single')
-    }else{
-      $('#site-header').hide()
+  window.addEventListener('load', (event) => {
+    var main = document.getElementsByTagName('main')[0]
+    if (main && main.classList.contains('post')) {
+      document.getElementById('page').classList.add('post')
     }
-
-  })
+  });
 </script>

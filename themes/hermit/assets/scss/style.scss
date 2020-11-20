@@ -19,10 +19,12 @@
 }
 
 html {
-  background: $light-grey;
   line-height: 1.6;
   letter-spacing: .06em;
   scroll-behavior: smooth;
+}
+body {
+  background: $light-grey;
 }
 
 body,

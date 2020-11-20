@@ -1,11 +1,11 @@
-body {}
 
-html.single {
-  background-color: #fcfcfc;
-}
-.single body{
+.post a {
   color: #3b3e48;
 }
-.single a {
-  color: #3b3e48;
+#site-header {
+ visibility: hidden;
+}
+.post #site-header {
+  visibility: visible;
+  transition: all 2s ease;
 }

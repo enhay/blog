@@ -6,6 +6,7 @@
 		<style>.bg-img {background-image: url('{{. | absURL}}');}</style>
 		{{- end -}}
 	{{- end -}}
+	<style>body {background-color: #fcfcfc;color: #3b3e48;}</style>
 {{ end }}
 
 {{ define "header" }}
@@ -16,7 +17,7 @@
 	{{- if (or .Params.images .Params.featuredImg) }}
 	<div class="bg-img"></div>
 	{{- end }}
-	<main class="site-main section-inner animated fadeIn faster singler">
+	<main class="site-main section-inner animated fadeIn faster post">
 		<article class="thin">
 			<header class="post-header">
 				<div class="post-meta"><span>{{ .Date.Format .Site.Params.dateform }}</span></div>
